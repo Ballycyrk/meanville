@@ -18,15 +18,17 @@ var server = app.listen(1964, function(req,res){
   console.log('********************');
 });
 
-var timer = require('./server/models/timer_m.js')
-timer.tick()
+var timer = require('./server/models/timer_m.js');
+console.log(timer.tick);
+timer.start()
 
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function(socket) {
   console.log("SERVER:: WE ARE USING SOCKETS!");
   console.log(socket.id)
 
-  socket.on("messageToServer", function(socket) {
-    io.sockets.emit("messageFromServer", socket);
+  socket.on("requestToPress", function(socket) {
+    timer.reset();
+    io.sockets.emit("serverApproval", "hello");
   })
 });

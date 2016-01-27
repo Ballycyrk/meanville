@@ -22,3 +22,4 @@ module.exports = function(app){
   // app.delete('/controller1/:id',  function(req, res){ controller1.delete(req, res) })
   // app.delete('/controller2/:id',  function(req, res){ controller2.delete(req, res) })
 }
+

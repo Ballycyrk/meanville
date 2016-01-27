@@ -2,10 +2,11 @@ module.exports = {
   show: function(req, res){
     console.log(seconds);
     res.json(seconds); },
-  tick: function() {
-  if (seconds == 1) { seconds = 61 };
-  seconds--;
-  setTimeout(tick, 1000);
+  start: function() {
+    tick();
+  },
+  reset: function() {
+    seconds = 60
   }
 };
 
