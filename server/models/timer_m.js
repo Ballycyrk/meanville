@@ -18,6 +18,7 @@ var seconds = 60;
 function tick(){
   if (seconds == 1) { seconds = 61 };
   seconds--;
+  console.log(seconds);
   setTimeout(tick, 1000);
 };
 

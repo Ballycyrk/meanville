@@ -19,20 +19,25 @@ var server = app.listen(1964, function(req,res){
 });
 
 var timer = require('./server/models/timer_m.js');
+var recruiter = require('./server/models/team.js');
 timer.start()
 
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function(socket) {
-  // return to connected socket the timer state.
   console.log("SERVER:: WE ARE USING SOCKETS!");
   console.log(socket.id);
   var goGo = timer.getSecond();
-  socket.emit("giveSecond", goGo);
+  io.sockets.emit("giveSecond", goGo);
 
   socket.on("requestToPress", function(socket) {
+    var player = timer.getSecond();
+    var placement = recruiter.signUp(player);
     timer.reset();
     var goGo = timer.getSecond();
+    console.log("PLACE:", placement.team);
     io.sockets.emit("giveSecond", goGo);
-    // confirm proper broadcast all.
+    var team = placement.team;
+    var img = placement.img;
+    io.emit("giveTeam", team, img);
   })
 });
