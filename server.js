@@ -19,16 +19,20 @@ var server = app.listen(1964, function(req,res){
 });
 
 var timer = require('./server/models/timer_m.js');
-console.log(timer.tick);
 timer.start()
 
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function(socket) {
+  // return to connected socket the timer state.
   console.log("SERVER:: WE ARE USING SOCKETS!");
-  console.log(socket.id)
+  console.log(socket.id);
+  var goGo = timer.getSecond();
+  socket.emit("giveSecond", goGo);
 
   socket.on("requestToPress", function(socket) {
     timer.reset();
-    io.sockets.emit("serverApproval", "hello");
+    var goGo = timer.getSecond();
+    io.sockets.emit("giveSecond", goGo);
+    // confirm proper broadcast all.
   })
 });

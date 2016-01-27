@@ -1,12 +1,15 @@
 module.exports = {
   show: function(req, res){
-    console.log(seconds);
     res.json(seconds); },
   start: function() {
     tick();
   },
   reset: function() {
     seconds = 60
+  },
+
+  getSecond: function() {
+    return seconds
   }
 };
 

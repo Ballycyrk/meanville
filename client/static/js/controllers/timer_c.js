@@ -2,16 +2,9 @@ ballyCyrk.controller('timerController', function(timerFactory, $location, $timeo
   var _this = this;
   var socket = io.connect();
 
-  this.getTimer = function(){
-    timerFactory.show(function(data){
-      _this.seconds = data;
-    });
-  }
-
   this.tick = function() {
-    if (_this.seconds == 1) { _this.seconds = 61 };
-    if (_this.seconds == 0) { return }
     _this.seconds--;
+    if (_this.seconds == 1) { _this.seconds = 60 };
     $timeout(_this.tick, 1000);
   };
 
@@ -19,15 +12,11 @@ ballyCyrk.controller('timerController', function(timerFactory, $location, $timeo
     socket.emit("requestToPress");
   };
 
-
-
-  socket.on('connect', function (data) {
-    _this.getTimer();
-    _this.tick();
+  socket.on('giveSecond', function (data) {
+    console.log("Sockets::", data);
+    _this.seconds = data;
   });
 
-  socket.on("serverApproval", function(socket) {
-    _this.getTimer();
-  })
+  _this.tick();
 });
 
