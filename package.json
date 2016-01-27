@@ -1,0 +1,30 @@
+{
+  "name": "meanville",
+  "version": "1.0.0",
+  "description": "The mean server that supports the iOS app Flagsville.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ballycyrk/meanville.git"
+  },
+  "keywords": [
+    "mean",
+    "flagsville"
+  ],
+  "author": "Colin McKenna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ballycyrk/meanville/issues"
+  },
+  "homepage": "https://github.com/Ballycyrk/meanville#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.3.7",
+    "socket.io": "^1.4.4"
+  }
+}
