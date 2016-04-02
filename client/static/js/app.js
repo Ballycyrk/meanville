@@ -7,14 +7,14 @@ ballyCyrk.config(function($routeProvider){
     templateUrl: './../static/views/partials/_timer.html',
     controller: 'timerController as TC'
   })
-  .when('/dash', {
-    templateUrl: './../static/views/partials/_dash.html',
-    controller: 'dashController as DC'
+  .when('/leaderboard', {
+    templateUrl: './../static/views/partials/_leaderboard.html',
+    controller: 'leaderController as LC'
   })
-  // .when('/user/:id', {
-  //   templateUrl: './../static/views/partials/_target.html',
-  //   controller: 'targetController as TC'
-  // })
+  .when('/admin', {
+    templateUrl: './../static/views/partials/_admin.html',
+    controller: 'adminController as AC'
+  })
   .otherwise({ redirectTo: '/'});
 });
 

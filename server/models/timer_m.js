@@ -16,7 +16,8 @@ module.exports = {
 var seconds = 60;
 
 function tick(){
-  if (seconds == 1) { seconds = 61 };
+  if (seconds == 1)
+    seconds = 61;
   seconds--;
   setTimeout(tick, 1000);
 };

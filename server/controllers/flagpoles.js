@@ -1,5 +1,5 @@
 var mongoose    = require('mongoose');
-var User        = mongoose.model('Location');
+var User        = mongoose.model('Flagpole');
 
 module.exports = {
   create: function(req, res){

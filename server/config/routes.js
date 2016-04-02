@@ -1,11 +1,10 @@
-var locations     = require('../controllers/locations.js');
+var flagpoles     = require('../controllers/flagpoles.js');
 var timer         = require('../models/timer_m.js');
+var teams         = require('../controllers/teams.js');
 
 module.exports = function(app){
-  app.get('/timer',         function(req, res) { timer.show(req, res) })
-  // app.post('/controller1',  function(req, res) {controller1.create(req, res) })
-  // app.post('/controller2',  function(req, res) {controller2.create(req, res) })
-
+  app.get('/leader',         function(req, res) { teams.leaders(req, res) })
+  app.post('/addTeam',       function(req, res) { teams.add(req, res)     })
   // app.get('/users',         function(req, res) { user.index(req, res) })
   // app.get('/controllers1',  function(req, res) { controller1.index(req, res) })
   // app.get('/controllers2',  function(req, res) { controller2.index(req, res) })

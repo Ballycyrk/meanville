@@ -5,12 +5,36 @@
 
   </script>
 </head>
-  <h5>I'm gonna be a fat timer with a stone cold button.</h5>
-  <p id="output"></p>
-  <div id="controls">
-    <button ng-click="TC.pressButton()">Start</button>
-    <p ng-bind="TC.seconds"></p>
-    <h1 ng-bind="TC.myTeam"></h1>
+<body>
+  <div>
+    <p id="ticktock" ng-bind="TC.seconds"></p>
+  </div>
+  <div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>Downtown</button></h3>
+    </div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>University District</button></h3>
+    </div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>Capitol Hill</button></h3>
+    </div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>Queen Anne</button></h3>
+    </div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>Ballard</button></h3>
+    </div>
+    <div class="team">
+      <h3>5 participants</h3>
+      <h3><button>Freemont</button></h3>
+    </div>
+    <h1><a href="#leaderboard">Leaderboard</a></h1>
   </div>
 </body>
 </script>
